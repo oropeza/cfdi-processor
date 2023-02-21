@@ -1,0 +1,4 @@
+## Examples
+
+
+doc.xpath('//cfdi:Comprobante').first.keys

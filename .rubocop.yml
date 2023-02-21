@@ -1,0 +1,25 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  Include:
+    - 'test/**/*.rb'
+    - 'app/**/*.rb'
+    - 'config/**/*.rb'
+
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/AbcSize:
+  CountRepeatedAttributes: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

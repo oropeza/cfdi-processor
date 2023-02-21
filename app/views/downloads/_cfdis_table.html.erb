@@ -1,0 +1,44 @@
+
+<table border="1">
+    <thead>
+        <tr>
+            <td>UUID</td>
+            <td>Fecha</td>
+            <td>Version</td>
+            <td>Tipo</td>
+            <td>Pago</td>
+            <td>Emisor</td>            
+            <td>Receptor</td>
+            <td>Subtotal</td>
+            <td>Descuento</td>
+            
+            <td>IVA</td>
+            <td>IEPS</td>
+            <td>Ret ISR</td>
+            <td>Ret IVA</td>
+            <td>Total</td>
+        </tr>
+
+
+    </thead>
+    <% items.each do |cfdi| %>    
+    <tr>
+        <td><%= cfdi.uuid %></td>
+        <td><%= cfdi.fecha %></td>
+        <td><%= cfdi.version %></td>
+        <td><%= cfdi.tipodecomprobante %></td>
+        <td><%= cfdi.metodopago %></td>
+        <td><%= cfdi.emisor.rfc %> <%= cfdi.emisor.nombre[..20] %></td>
+        <td><%= cfdi.receptor.nombre[..30] if cfdi.receptor.nombre.present? %></td>        
+        <td><%= cfdi.subtotal %></td>
+        <td><%= cfdi.descuento %></td>
+        
+        <td><%= cfdi.impuestos.iva %></td>
+        <td><%= cfdi.impuestos.ieps %></td>
+        <td><%= cfdi.impuestos.retencion_isr %></td>     
+        <td><%= cfdi.impuestos.retencion_iva %></td>     
+        <td><%= cfdi.total %></td>            
+
+    </tr>
+    <% end %>
+</table>

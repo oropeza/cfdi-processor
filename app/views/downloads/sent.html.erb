@@ -1,0 +1,12 @@
+<h1>Enviados (<%= @cfdis.size %>)</h1>
+
+<ul>
+    <li>Subtotal <%= number_to_currency(@cfdis.sum(0){|item| item.subtotal }) %></li>
+    <li>IVA <%= number_to_currency(@cfdis.sum(0){|item| item.impuestos.iva }) %></li>
+    <li>Ret ISR <%= number_to_currency(@cfdis.sum(0){|item| item.impuestos.retencion_isr }) %></li>
+    <li>Ret IVA <%= number_to_currency(@cfdis.sum(0){|item| item.impuestos.retencion_iva }) %></li>
+    <li>Total <%= number_to_currency(@cfdis.sum(0){|item| item.total }) %></li>
+    
+</ul>
+
+<%= render partial: "cfdis_table", locals: {items: @cfdis} %>
